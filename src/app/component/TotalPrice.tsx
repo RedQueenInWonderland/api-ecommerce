@@ -28,7 +28,7 @@ const TotalPrice = () => {
         //ใช้ reduce แทน forEach เพราะ forEach มีการเรียกฟังก์ชั่นทุกการวน loop เกิดการทำซ้ำมาก หากข้อมูลมีขนาดเล็กอาจเกิดปัญหาไม่มาก 
         // (ในกรณีนี้ที่ข้อมูลมี 2 ค่า n จะยกกำลัง 2) แต่หากข้อมูลมีขนาดใหญ่การทำซ้ำยิ่งใหญ่ขึ้นเป็นทวีคูณ
         //  แต่ reduce เป็นการสะสมผลลัพธ์ไม่ได้ทำซ้ำฟังก์ชั่น และ code ก็สั้นและดูสะอาดขึ้นมาก
-        return orderItems.reduce((total, item) => total + item.price * item.quantity, 0); // เอาราคาคูณจำนวนเอาไปบวกเก็บไว้ใน total 
+        return orderItems.reduce((total, item) => total + item.price * item.quantity, 0); // ค่าเริ่มต้นคือ total = 0 แล้วเอาราคากับปริมาณมาสะสมรวมกันในแต่ละรอบ 
     }
     
     //ไม่ให้ render ซ้ำ
